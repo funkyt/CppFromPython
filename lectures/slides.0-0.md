@@ -79,10 +79,12 @@ We will use the following tools for this class:
 * GitHub.com (for saving and submitting your work)
  - NOTE: publicly visible!
 * Repl.it (online IDE, includes Clang v7)
+ - Everything runs in the browser
+ - Nothing to install locally
 
 --
 
-You may, if you prefer, use your own tools, but:
+You may use your own tools, but:
 * Responsible for installation yourself
 * Won't be able to provide support
 * Compilers may differ in
@@ -126,13 +128,12 @@ We'll discuss the pieces of this program in slightly more detail during the next
 
 ### Experimentation
 
-1. Run the repl with the `Run` button.  What does it output?
+1. **QUESTION:** What is the output when you click `Run`?
 2. Create a new folder called `hw-0.0`, and copy `main.cpp` into it
 3. Compile and test this yourself using the commands:
  * `> clang++ hw-0.0/main.cpp -o main-0.0`
  * `> ./main-0.0`
-4. Answer the following questions:
-  1. **QUESTION** What happens if you remove the `\n`?
-  2. **QUESTION** What do you think each part of `int main()` means?
-5. Customize the output message somehow (your choice)
-6. Commit & push, then send me the github link
+4. **QUESTION:** What happens if you remove the `\n`?
+5. **QUESTION:** What do you think each part of `int main()` means?
+6. Customize the output message somehow (your choice)
+7. Commit & push, then send me the github link
