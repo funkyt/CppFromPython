@@ -1,31 +1,95 @@
 # C++ From Python
 
-## Lesson 0-1
+## Lesson 0.1
 
 ### Basic Syntax, I/O, Functions
 
 ---
 
-## Basic Syntax
+## Homework Review
 
-A lot of syntax is similar to Python:
-* Call functions using parenthesis after the function name
-* Mathematical expressions follow order of operations
-* Many flow-control keywords have the same meanings:
- - `return`, `if`, `else`, `while`, `for`, `break`, `continue`, etc
+* The `\n` is a newline (like the enter key)
+* For `int main()`:
+  - The parenthesis mark it as a function with no parameters
+  - The `int` identify the return type --- this is a special case
+  - The `main` is the name of a special function that starts your program
 
-There are important differences, however:
-* Most statements end with a semicolon `;`
-* Every variable and function needs to have a type.
-* Grouping of statements is done with `{` and `}`
+When you add a second C++ file, you might notice that the "Run" button no
+longer works!  For now, let's use the compiler by hand, but you can Google
+for "repl.it Configuring The Run Button" to find instructions on how to
+set the command yourself.
 
-Python | C++
-:-- | :--
-`x = 0` | `int x = 0;`
-`x += 1` | `x += 1;` or `++x;`
-`def next(x):`<br>&nbsp;&nbsp;&nbsp;`  return x+1` | `int next(int x) {`<br>&nbsp;&nbsp;&nbsp;` return x+1;`<br>`}`
+---
 
-I'll list over syntax in more detail later.
+## Python to C++ (by example)
+
+#### Python
+```python
+def inc_square(x):
+  x += 1  # Increment
+  y = x * x
+  return y
+```
+
+--
+
+#### Python (typed)
+```python
+def inc_square(x : int) -> int:
+  x += 1  # Increment
+  y : int = x * x
+  return y
+```
+
+--
+
+#### C++
+```c++
+int inc_square(int x) {
+  x += 1;  // Increment
+  int y = x * x;
+  return y;
+}
+```
+
+---
+
+## Python to C++ (summary)
+
+* Group with `{` and `}`, not indentation
+* End statements with `;`
+* Every variable (and function, and parameter) has a type
+* Use `//` instead of `#` for comments
+* Parenthesis mandatory for `if`, `for`, `while`
+
+For better *and* for worse, one of these is going to occupy much
+more of your thought process than the others.
+
+---
+
+## Fixed-size integers
+
+In Python, you can store very, very large integers.  In C++, however,
+the builtin integer types come in two flavors, and have a fixed
+range.  This produces *much* faster code.
+
+--
+
+### `int`, `short`, and `long`
+
+* Typically 32-bit, 16-bit, and 64-bit (respectively)
+* For 32-bit, can store -2147483648 to 2147483647
+  * Thats -2^31 to 2^31 - 1
+* Program might crash if you go too high (or low)
+
+--
+
+### `unsigned` (variants of above)
+
+* Same sizes, but no negative numbers
+* For 32-bit, can store 0 to 4294967295 (2^32 - 1)
+* Wraps around if you go to high or too low
+  * Like a clock, if you read "12" as "0"
 
 ---
 
@@ -61,7 +125,7 @@ that will eventually be useful (you don't have to remember these):
 
 ```c++
 #include <iostream>        // Standard input/output
-#include <string>          // The  string type
+#include <string>          // The string type
 #include <vector>          // Like `list` in Python
 #include <unordered_map>   // Like `dict`
 #include <unordered_set>   // Like `set`
@@ -90,7 +154,6 @@ In Python, you had `print()` and `input()` available as built-in functions.
 In C++, you have `std::cout` and `std::cin` instead, and they're part of a library.
 
 ```c++
-// TODO - Convert to REPL
 #include <iostream>  // Provides std::cin, std::cout
 
 int main() {
@@ -125,12 +188,13 @@ int main() {
 
 ## Functions
 
-Every C++ program must have at *least* one function, called `int main()`.  This is the
-function that gets run when your program is executed.  Unlike Python, you can't just put
-statements outside of a function and have them be run for you.
+Every C++ program must have at *least* one function, called `int main()`.
+This is the function that gets run when your program is executed.
+Unlike Python, you can't just put statements outside of a function
+and have them be run for you.
 
-The type `void` can be used for a function that doesn't return anything(*).  In this
-case, it's similar to `None`/`NoneType` from Python.
+The type `void` can be used for a function that doesn't return
+anything(*).  In this case, it's similar to `None`/`NoneType` from Python.
 
 ```c++
 int next(int x) {
@@ -170,10 +234,6 @@ if (x % 2 == 0) {
 ```
 
 Technically the `{}` can be left out for short statements, but don't do it!
-
----
-
-## Too much talk, time for code!
 
 ---
 
@@ -221,9 +281,9 @@ What is the height?
 ```
 --
 ```
-3
+3.5
 ```
 --
 ```
-The area is 15.0, and the perimeter is 16.0.
+The area is 17.5, and the perimeter is 17.
 ```
